@@ -9,12 +9,7 @@
       </div>
       <div class="panel-body">
         <div class="pull-left">
-          <input
-            type="number"
-            class="form-control"
-            placeholder="Quantity"
-            v-model="quantity"
-          />
+          <input type="number" class="form-control" placeholder="Quantity" v-model="quantity" />
         </div>
         <div class="pull-right">
           <button
@@ -48,14 +43,15 @@ export default {
       };
       console.log(order);
       this.quantity = 0;
+      this.$store.dispatch("buyStock", order);
     },
     isInt(value) {
       if (isNaN(value)) {
         return false;
       }
       var x = parseFloat(value);
-      console.log(x);
-      console.log((x | 0) === x);
+      // console.log(x);
+      // console.log((x | 0) === x);
       return (x | 0) === x;
     },
   },
